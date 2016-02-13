@@ -51,6 +51,52 @@ void DeleteList(element *head) {
   }
 }
 
+// Don't know the length
+// Start with two pointers that are k nodes apart and keep iterating until you reach the end
+// k = 2 (second to last element) return 6
+// 18 5 6 8
+
+// Recursively you want to go all the way to the end and then increment a counter as you go back up
+
+element* nthToLast(element* head, int k, int *i) {
+  if (head == NULL) {
+    return NULL;
+  }
+  element *elem = nthToLast(head->next, k, i);
+  *i = *i + 1;
+  if (*i == k) {
+    return head;
+  }
+  return elem;
+}
+
+int recursiveFindKthElem(element *head, int k) {
+  int i = 0;
+  element *elem = (element *) malloc(sizeof(element));
+  elem = nthToLast(head, k, &i);
+  printf("Data: %d\n", elem->data);
+  return 0;
+}
+
+int FindKthElem(element *head, int k) {
+  int i = k - 1;
+  element *elem = head;
+  element *second_ptr = elem->next;
+  while (i > 0) {
+    second_ptr = second_ptr->next;
+    i = i - 1;
+  }
+  while (second_ptr) {
+    if (second_ptr->next == NULL) {
+      printf("KthElem: %d\n", elem->next->data);
+      return elem->next->data;
+    }
+    second_ptr = second_ptr->next;
+    elem = elem->next;
+  }
+  return 0;
+}
+
 int main(int argc, char *argv[]) {
   // initialize a linkedlist
   element *head;
@@ -72,9 +118,11 @@ int main(int argc, char *argv[]) {
   Insert(new_head, head);
   printf("New_head: %d\n", new_head->next->data);
   Traverse(new_head);
-  DeleteElement(new_head, second);
+  //DeleteElement(new_head, second);
   printf("\n");
   Traverse(new_head);
+  FindKthElem(new_head, 2);
+  recursiveFindKthElem(new_head, 2);
   DeleteList(new_head);
   if (new_head->data != head_val) {
     printf("list deleted");
