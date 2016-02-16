@@ -12,6 +12,32 @@ typedef struct elementT {
   struct elementT *next;
 } element;
 
+// Delete and InsertAfter provide good edge cases to solve against
+// This is if you have global pointers head and tail that point to the first and last element
+int Delete(element *elem) {
+
+  element *curPos = head;
+  if (elem == head) {
+    head = elem->next;
+    free(elem);
+    return 1;
+  }
+
+  while (curPos) {
+    if (curPos->next == elem) {
+      curPos->next = elem->next;
+      free(elem);
+      if (curPos->next == NULL) {
+        tail = curPos;
+      }
+      return 1;
+    }
+    curPos = curPos->next;
+  }
+
+  return 0;
+}
+
 // Update the head pointer in C is to pass a pointer to the head pointer
 int Insert(element *newElem, element *head) {
   newElem->next = head;
