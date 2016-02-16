@@ -12,6 +12,33 @@ typedef struct elementT {
   struct elementT *next;
 } element;
 
+// Bug fix with this function
+// 1.) Check that data comes into the function properly
+//  - Make sure you arne't accessing a variable that you don't have, you aren't reading something as an int
+//  that should be a long, and you have all the values you need to perform the task
+// 2.) Check that each line of the function works correctly.
+//  - The function is undoubtedly performing a task. Verify that the task is executed correctly at each line
+//  and that the desired result is produced at the end.
+// 3.) Check that the data comes out of the function correctly.
+//  - The return value should be what you expect. Also, if the function is expected to update any caller
+//  variables, make sure this occurs.
+// 4.) Check common error conditions.
+//  - Error conditions vary depending on the specifics of a problem. Tend to involve unusual argument values.
+//  Functions that operate on data structures may have trouble with empty or nearly empty data structures.
+//  Functions that take a pointer as an argument may fail if passed a NULL pointer.
+//
+//  C is pass by value, so functions get a local copy of each argument, but they need to edit the actual
+//  variable, so you need to pass a pointer to the variable (pointer to the pointer).
+//  Also need to check error conditions (zero-element list)
+void RemoveHead(element **head) {
+  element *temp;
+  if (!(*head)) {
+    temp = (*head)->next
+    free(*head);
+    *head = temp;
+  }
+}
+
 // Delete and InsertAfter provide good edge cases to solve against
 // This is if you have global pointers head and tail that point to the first and last element
 int Delete(element *elem) {
