@@ -3,6 +3,22 @@
 // last element in the list, marking the next pointer as NULL. Singly linked lists can only be traversed in
 // the forward direction, so a complete traversal of the list must begin with the first element. In other
 // words, you need a pointer to the first element of a list in order to locate all the elements in the list. 
+//
+// Problem: Mth-to-Last Element of a Linked List
+// When you traverse a singly linked list you don't know where the end is. A singly linked list is a
+// particularly poor choice for this problem. You know that the element you want is m elements from the end of
+// the list. So, if you traverse m elements forward from an element and that places you exactly at the end,
+// you've found the element you are looking for. One approach is to try each element until you find the one
+// you are searching for. Efficiency would be O(mn). If you stored some of the elements as you traversed the
+// list, and when you hit the end of the list, you could look back m elements in your storage data structure,
+// this algorithm would be O(n) because only one traversal needed but extra space as m becomes large. You know
+// the element must be m from the end of the list, and l from the beginning of the list. So you know that
+// l + m = n => l = n - m. So you can count through the list, then subtract m and traverse that many forward.
+// It is still only O(n) time complexity. This uses very few variables, but if a large list on a
+// memory-constrained system, it might exist mostly in paged-out virtual memory (on disk). Each complete
+// traversal of the list would take lots of disk access to swap the relevant portions of the list in and out
+// of memory. The ideal method is to have two pointers, m distance from one another and have them move in
+// lockstep of one another.
 
 #include <stdlib.h>
 #include <stdio.h>
