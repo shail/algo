@@ -27,6 +27,29 @@ void flattenList(node *head, node **tail) {
         }
         curNode = curNode->next;
     }
+
+    for (curNode = head; curNode->next; curNode = curNode->next) {
+    };
+
+    *tail = curNode;
+}
+
+void exploreAndSeparate(node *childListStart) {
+  node *curNode = childListStart;
+
+  while (curNode) {
+    if (curNode->child) {
+      curNode->child->prev->next = NULL;
+      curNode->child->prev = NULL;
+      exploreAndSeparate(curNode->child);
+    }
+    curNode = curNode->next;
+  }
+}
+
+void unflattenList(node *head, node **tail) {
+    node *curNode = head;
+    exploreAndSeparate(head);
 }
 
 int main(int argc, char *argv[]) {
@@ -73,6 +96,12 @@ int main(int argc, char *argv[]) {
     eight->value = 8;
     flattenList(first, &third);
     node *curNode = first;
+    while (curNode) {
+        printf("Node value: %d\n", curNode->value);
+        curNode = curNode->next;
+    }
+    unflattenList(first, &eight);
+    curNode = first;
     while (curNode) {
         printf("Node value: %d\n", curNode->value);
         curNode = curNode->next;
