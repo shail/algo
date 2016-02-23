@@ -11,3 +11,7 @@ def add_digits(num)
     add_digits(counter)
   end
 end
+
+def digital_root(num)
+    num - 9*((num-1)/9.0).to_i
+end
