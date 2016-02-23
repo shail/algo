@@ -8,3 +8,13 @@
   move the data structure or argument initialization code into a separate function. This wrapper function,
   which performs initialization and then calls the purely recursive function, provides a clean, simple
   interface to the rest of the program.
+
+- Recursion is a very powerful technique, it is not always the best and rarely the most efficient approach.
+  This is due to the relatively large overhead for funtion calls on most platforms. Iterative functions, which
+  use looping constructs instead of recursive function calls, do not suffer from this overhead and are
+  frequently more efficient. For some problems there are no obvious iterative algorithms. It is possible to
+  implement a recursive algo w/o using recursive function calls. Recursive function calls used to preserve
+  current values of local variables so these values can be restored when the subtask performed by the
+  recursive function call is completed. You can eliminate the need for recursive function calls by allocating
+  your own stack and manually storing and retrieving values of local variables from this stack. implementing
+  this type of function tends to be significantly more complicated than implementing the recursive version.
