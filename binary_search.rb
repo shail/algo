@@ -3,7 +3,7 @@ def binary_search(array, lower, upper, target)
   range = upper - lower
   center = (range/2) + lower
   if (target == array[center])
-    index = center;
+    index = center
   elsif (target < array[center])
     index = binary_search(array, lower, center - 1, target)
   else
