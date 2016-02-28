@@ -85,3 +85,13 @@
     bit that is shifted off the end of the first register must come in at the other end of the second.  With
     rotate-through-carry, that bit is "saved" in the carry flag during the first shift, ready to shift in
     during the second shift without any extra preperation
+
+Bitwise Power Of 2
+num & (num - 1) == 0000
+2^n has a single 1 and the rest is zeros
+2^n - 1 is all ones
+
+8 - 1000
+7 - 0111
+8 & 7 = 0000
+
