@@ -1,0 +1,87 @@
+# Bitwise Operation
+
+## NOT
+  - Bitwise NOT, or complement, is a unary operation that performs negation on each bit, forming the ones'
+    complement of the given binary value. Bitwise complement is equal to the two's complement of the value
+    minus one. If two's complement arithmetic is used, then NOT x = -x - 1
+
+    For unsigned integers is the mirror reflection of the number across the half-way point of the unsigned
+    integer's range. 8-bit unsigned integers NOT x = 255 - x
+
+    NOT 7 0111
+        = 1000 (decimal -8)
+
+    Corr: Two's Complement
+      - Two's complement of an N-bit number is defined as the complement with respect to 2^N. Method of
+        complements is a technique used to subtract one number from another using only addition of positive
+        numbers. Equivalent to taking the ones compliment and then adding one, since the sum of a number
+        and its ones' complement is all 1 bits. Two's complement of a number behaves like the negative of
+        the original number in most arithmetic, and positive and negative numbers can coexist in a natural way
+        In general, negation (reversing sign) is performed by taking the two's complement. Most common method
+        of representing signed integers on computers. Two's complement allows you to deal with negative sign
+        values in binary representation easily. If number is negative, you find the complement, and add 1.
+        Least significant digit tells you whether is is positive or negative (0 is positive, 1 is negative)
+
+        1111 1111 == 255 unsigned or -1 two's complement
+        1111 1110 == 254 unsigned or -2 two's complement
+        1110 0000 == 224 unsigned or -32 two's complement
+
+## AND
+  - Bitwise AND takes two equal-length binary representations and performs the logical AND operation on each
+    pair of the corresponding bits by multiplying them. This operation allows you to determine whether a
+    particular bit is set (1) or clear (0). This allows you to tell which bit was set, called bit masking,
+    portions of the binary number that shouldn't be altered or not of interest. May also be used to clear
+    selected bits of a register in which each bit represents an individual Boolean state. It is easy to check
+    the parity of a binary number by checking the value of the lowest valued bit.
+
+        0110
+    AND 0001
+      = 0000 Because 6 AND 1 is zero, 6 is divisible by two and therefore even
+
+## OR
+  - Bitwise OR takes two bit patterns of equal length and performs the inclusive OR operation on each pair of
+    corresponding bits. Result in each position is 0 if both bits are 0, while otherwise the result is 1
+       0101
+    OR 0011
+     = 0111
+
+## XOR
+  - Bitwise XOR takes two bit patterns of equal length and performs the logical exclusive OR operation on 
+    each pair of bits. Result in each position is 1 if only one of the bits is 1 otherwise it is 0. Bitwise
+    XOR may be used to invert selected bits in a register. Any bit may be toggled by XORing it with 1. 
+
+        0101
+    XOR 0011
+      = 0110
+
+## Bit Shift
+  - Sometimes considered bitwise operations, because they treat a value as a series of bits. The digits
+    are moved, or shifted, to the left or right. Arithmetic shift, bits are shifted out of either end are
+    discarded. Arithmetic shifts can be useful as efficient ways of performing multiplication or division
+    of signed integers by powers of two. Shifting left by n bits on a signed or unsigned binary number has the
+    effect of multiplying it by 2^n. Shifting right by n bits on a two's complement signed binary number has
+    the effect of dividing it by 2^n. You keep the sign though for a signed number 
+
+## Logical Shift
+  - In a logical shift, zeros are shifted in to replace the discarded bits. The logical and airthmetic
+    left-shifts are the same because don't have to worry about sign. But as the logical right-shift inserts
+    value 0 bits into the most significant bit, instead of copying the sign bit, it is ideal for unsigned
+    binary numbers, while the arithmetic right-shift is ideal for signed two's complement binary numbers.
+    Logical shift is used when its operand is being treated as a sequence of bits rather than as a number
+
+## Circular Shift
+  - This is another shift where the bits are "rotated" as if the left and right ends of the register were
+    joined. The value that is shifted in on the right during a left-shift is whatever value was shifted out
+    on the left
+
+## Rotate through Carry
+  - Similar to circular shift but the two ends of the register are separated by the carry flag. The bit that
+    is shifted in (on either end) is the old value of the carry flag, and the bit that is shifted out (on the
+    other end) becomes the value of the carry flag. A single rotate through carry can simulate a logical or
+    arithmetic shift of one position by setting up the carry flag beforehand. If the carry flag contains 0,
+    then right rotate through carry is a logical right-shift, and if carry flag contains a copy of the sign
+    bit, then it is an arithmetic right-shift. This is especially useful when performing shifts on numbers
+    larger than the processor's native word size, because if a large number is stored in two registers, the
+    bit that is shifted off the end of the first register must come in at the other end of the second.  With
+    rotate-through-carry, that bit is "saved" in the carry flag during the first shift, ready to shift in
+    during the second shift without any extra preperation
