@@ -1,3 +1,6 @@
+# Right shift moves over the next digit, you and with 1 to see if it is a 1 or 0 and then XOR it with result
+# which will keep track of whether the number of ones is even or odd
+
 def parity(n)
   result = 0
   while (n != 0) do
