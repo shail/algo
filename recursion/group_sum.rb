@@ -1,14 +1,7 @@
 def group_sum(start, numbers, target)
-  numbers[start...numbers.length].to_a.each_with_index do |value, index|
-    if target - value == 0
-      return true
-    elsif target - value > 0
-      return group_sum(start + index, numbers, target - value)
-    else
-      next
-    end
-  end
-  return false
+  return target == 0 if start >= numbers.length
+  return group_sum(start + 1, numbers, target - numbers[start]) ||
+         group_sum(start + 1, numbers, target)
 end
 
 p group_sum(0, [2,4,8], 10) == true
