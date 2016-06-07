@@ -16,6 +16,12 @@ def possible_trees(n)
   end
 end
 
+# Table with n columns and n+1 rows, n+1 row is to store the sum of each column
+# - number of elements as the column, 6th column, assume we have 6 elements to create BST
+# - a given cell C(4,6) contains the count of trees which can be made by 6 unique elements given the 4th
+# element is chosen as the root. We know that for one element the number of trees possible is 1. So we can
+# populate all the cells in the first column with 0 and all cells in the first row with 1. We populate through
+# the column, not through the row
 def dp_possible_trees(n)
   array = Array.new(n+2) { Array.new(n+1) { 0 } }
   (0...n+2).to_a.each do |i|
