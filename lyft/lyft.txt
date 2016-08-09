@@ -1,0 +1,2 @@
+- Write a compressor text documents given the ins and outs of a decompressor
+- Design question on design promo code system

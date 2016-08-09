@@ -1,0 +1,24 @@
+- Interval intersection
+- Implement a function to find all palindrome substrings in a string
+- Given n*n matrix, randomly with different colors, add up total number of groups of each color, a group is
+  adjacent cells of the same color touching each other
+- Write a function that takes string S and an array of strings and return true if S can be reconstructured by
+  any combination of the elements
+- Find the shortest subtree that consists of all the deepest nodes
+- Given a matrix of 1s and 0s, find the shortest route between two points in the matrix while considering 1s
+  as wall
+- BST vertical order sum
+- Boggle Board Puzzle
+- Square matrix full of O,G,Ws where O is open space, G is guards, and W is walls. Write a function that
+  accepts the square matrix and returns another matrix where all of the Os in the matrix are replaced with the
+  number of how many spaces they are away from a guard
+- Given two sorted input arrays which contain a two element array of [key, value], write a function which
+  multiplies the two arrays together and sums them where the key matches
+- Take binary expansions as strings and return the string containing their sum
+- Print largest non-duplicate substring in the given string
+- Given a matrix with letters, find if a word exists
+- Find substring in string
+- Touch one number on a keypad and drag around keypad (only horizontal and vertical movements, no repeats),
+  give all possible permutations
+- Given a set of strings, return the smallest subset that contains prefixes for every string
+- Print nodes of a binary tree columnwise

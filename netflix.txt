@@ -1,0 +1,5 @@
+Median of stream of integers
+Implement insertion sort
+
+-- Obviously you could mention Hulu and Amazon, but really it is user's time. People can do so many other
+things

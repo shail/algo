@@ -11,6 +11,15 @@ class MinStack
     @data.unshift(value)
   end
 
+  def pop()
+    x = @data.shift
+    y = self.get_min
+
+    @minimum.shift if y == x
+
+    return x
+  end
+
   def get_min
     @minimum.first
   end
@@ -23,3 +32,5 @@ a.push(2)
 puts a.get_min
 a.push(-2)
 puts a.get_min
+p a.pop() == -2
+p a.get_min == 2

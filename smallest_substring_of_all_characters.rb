@@ -40,6 +40,6 @@ def smallest_substring(arr, str)
   return result.inspect
 end
 
-puts smallest_substring(["x","y","z"], 'xyyzyzyx')
-
+puts smallest_substring(["x","y","z"], 'xyyzyzcyx')
+p smallest_substring("abc".split(""), 'adobecodebanc')
 # http://articles.leetcode.com/finding-minimum-window-in-s-which

@@ -1,4 +1,3 @@
-$tower = [[0,1,2,3,4,5],[],[]]
 def move_tower(tower, disk, source, dest, spare)
   if disk == 0
     temp = tower[source].shift

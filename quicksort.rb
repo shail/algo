@@ -7,25 +7,26 @@ def quicksort(array, low, high)
 end
 
 def partition(array, low, high)
-  first_high = low
+  actual_pivot = low
   array[low..high].each_with_index do |element, index|
     # if the current element is less than the pivot, swap the value with the current index position of where
     # the pivot should be and increment that by 1
     if element < array[high]
-      temp = array[first_high]
-      array[first_high] = element
+      temp = array[actual_pivot]
+      array[actual_pivot] = element
       array[low + index] = temp
-      first_high += 1
+      actual_pivot += 1
     end
   end
-
   # swap the pivot with the index position that we ended at
+  p "Starting_pivot: #{high}"
+  p "Actual_pivot spot #{actual_pivot}"
   temp = array[high]
-  array[high] = array[first_high]
-  array[first_high] = temp
+  array[high] = array[actual_pivot]
+  array[actual_pivot] = temp
 
   puts array.inspect
-  return first_high
+  return actual_pivot
 end
 
 puts quicksort([1,3,4,2,9,6],0,5)
